@@ -1,7 +1,5 @@
-<html>
-  <head>
-<Title> Submit a finding</title>
-   
+<Title> Report mistakes</title>
+<h1> Report a mistake</h1>   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -12,55 +10,32 @@
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
   </head>
+  
   <body>
-<!--My code here-->
-
+  
 <style>
 body {background-color:#FCE562; }
 
 </style>
 
-Username:
-  <input type="text" class="form-control" placeholder="Text input" id="username">
 <div>
+Name: <input type="text" name ="Rstall_name"> 
+<br>
 
-Food Stall Name:
-<input type="text" class="form-control" placeholder="Text input" id="FSname">
-<div>
-Food type:
-<select id="type">
-  <option value="ngca">Nasi Goreng Cili Api</option>
-  <option value="aslak">Assam Laksa</option>
-  <option value="hcp">Han Chee Peng</option>
-  <option value="bkt">Bak Kut Teh</option>
+Type of complaint: 
+<select id="compl">
+  <option value="1">Wrong location</option>
+  <option value="2">Not the same shop</option>
+  <option value="3">It tastes like crap now</option>
+  <option value="4">Other (please state)</option>
 </select> 
-<div>
 
-Location:
-<p id="demo">Coordinates</p>
-<button onclick="getLocation()">Get location</button>
-<script>
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-  }
-function showPosition(position)
-  {
-  x.innerHTML="Latitude: " + position.coords.latitude + 
-  "       Longitude: " + position.coords.longitude;	
-  }
-</script>
+<br>
 
-</div>
 
 Comments:
 <textarea rows="4"   placeholder="Enter your comments here" id="comm"></textarea>
-
+ 
 
 <div><form>
 Status: 
@@ -69,9 +44,16 @@ Status:
 <input type="radio" class="form-control" name="Status" value="Found" id="status"> Found
 
 </form>
+
+  
 <br>
 <input type="submit" class="form-control" value="Submit">
 
+
+<br>
+</div>
+
+  
 <!--My code here-->
 
 
@@ -80,9 +62,3 @@ Status:
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
   </body>
-  
-  
-  
-  
-  
-</html>
