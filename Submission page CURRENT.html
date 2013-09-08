@@ -11,8 +11,51 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+	<script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
   </head>
   <body>
+  
+  <script language="JavaScript">
+function AddSubmission(){
+
+alert('Submission submitted');
+
+Parse.initialize("h8qaiCUgkwu95Xh3vBfPLZXWFAAesDCDMUsBx7X2", "qjvynLCO1cNAG79HCjFVTrtUEVEFz81PDDLmfIlQ");
+
+var Submission = Parse.Object.extend("Submission");
+var submit = new Submission();
+
+
+var sbtName = document.getElementById('txtName').value;
+var sbtFoodName = document.getElementById('txtFoodName').value;
+var sbtType = document.getElementById('cboType').value;
+var sbtComment = document.getElementById('txtcomment').value;
+var sbtStatus = document.getElementById('status').value;
+
+alert(sbtName);
+alert(sbtFoodName);
+alert(sbtType);
+alert(sbtComment);
+alert(sbtStatus);
+
+report.set("SbtName", SbtName);
+report.set("SbtFoodName", SbtName);
+report.set("SbtType", SbtType);
+report.set("SbtComment", SbtComment);
+report.set("SbtStatus", SbtStatus);
+
+
+report.save(null, {
+ success: function(report) {
+ alert('submission submitted.');
+ },
+ error: function(report, error) {
+   alert('Failed to create new submission, with error code: ' + error.description);
+ }
+})
+};
+
+</script>
 <!--My code here-->
 
 <style>
@@ -21,14 +64,14 @@ body {background-color:#FCE562; }
 </style>
 
 Username:
-  <input type="text" class="form-control" placeholder="Text input" id="username">
+  <input type="text" class="form-control" placeholder="Text input" id="txtName">
 <div>
 
 Food Stall Name:
-<input type="text" class="form-control" placeholder="Text input" id="FSname">
+<input type="text" class="form-control" placeholder="Text input" id="txtFoodName">
 <div>
 Food type:
-<select id="type">
+<select id="cboType">
   <option value="ngca">Nasi Goreng Cili Api</option>
   <option value="aslak">Assam Laksa</option>
   <option value="hcp">Han Chee Peng</option>
@@ -59,7 +102,7 @@ function showPosition(position)
 </div>
 
 Comments:
-<textarea rows="4"   placeholder="Enter your comments here" id="comm"></textarea>
+<textarea rows="4" cols="50"  placeholder="Enter your comments here" id="txtComment"></textarea>
 
 
 <div><form>
@@ -70,7 +113,7 @@ Status:
 
 </form>
 <br>
-<input type="submit" class="form-control" value="Submit">
+<input type="submit" class="form-control" value="Submit" onclick="AddSubmission()">
 
 <!--My code here-->
 

@@ -11,8 +11,57 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+<script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
+	
+<script>
+var param = /[&?]var=([^&]+)/.exec(location.search);
+param = param ? param[1].replace(/"/g, '&quot;') : '';
+//alert(param);
+</script>	
+	
   </head>
   <body>
+  
+ <script language="JavaScript">
+
+Parse.initialize("h8qaiCUgkwu95Xh3vBfPLZXWFAAesDCDMUsBx7X2", "qjvynLCO1cNAG79HCjFVTrtUEVEFz81PDDLmfIlQ");
+
+var Foods = Parse.Object.extend("Foods");
+var query = new Parse.Query(Foods);
+var param;
+//var keyWord = document.getElementById('txtsearch').value;
+
+query.equalTo("objectId", param);
+
+query.find({
+ success: function(results) {
+  //alert("Successfully retrieved.");
+
+  for (var i=0; i < results.length;i++){
+     var object = results[i];
+     //alert(object.id + ' - ' + object.get('foodName'));
+	 
+	 param = object.id;
+	 //alert(object.get('foodName'));
+ 	 //alert(object.get('foodType'));
+	 //alert(object.get('foodStatus'));
+	 //alert(object.get('foodImage'));
+		 
+	 document.getElementById('FName').innerHTML = object.get('foodName');
+	 document.getElementById('FType').innerHTML = object.get('foodType');
+	 document.getElementById('FStatus').innerHTML = object.get('foodStatus');
+	 //document.getElementById('pstatus').innerHTML = object.get('foodStatus');
+  }
+  },
+  error:function(error) {
+    alert("Error: " + error.code + " " + error.message);
+  }
+ });
+
+
+</script>
+  
+  
 <!--My code here-->
 
 <style>
@@ -20,21 +69,19 @@ body {background-color:#FCE562; }
 
 </style>
 
-<img src="url" align="left">
+<img src="no_image.gif" width="170" height="115" align="Top">
+<p> </p>
 
-Status: 
-<input type="text" class="form-control" placeholder="" id="Status" >
-  <p label="Status"> Text </p>
 Stall name:
-  <input type="text" class="form-control" placeholder="" id="FSname" >
-  <p label="FSname"> Text </p>
+  <p label="FSname" ><b id="FName"> Text </b> </p>
   
 <div>
 Food type:
-  <input type="text" class="form-control" placeholder="" id="" >
-  <p label="type"> Text </p>
+  <p label="type" ><b id="FType"> Text </b></p>
 <div>
   
+  Status: 
+  <p label="Status" ><b id="FStatus" > Text </b></p>
 
   
   	

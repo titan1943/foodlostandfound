@@ -9,9 +9,48 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+<script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
+
   </head>
   
   <body>
+ <script language="JavaScript">
+function AddReport(){
+Parse.initialize("h8qaiCUgkwu95Xh3vBfPLZXWFAAesDCDMUsBx7X2", "qjvynLCO1cNAG79HCjFVTrtUEVEFz81PDDLmfIlQ");
+
+var Reports = Parse.Object.extend("Reports");
+var report = new Reports();
+
+
+var rptName = document.getElementById('txtName').value;
+var rptType = document.getElementById('cboType').value;
+var rptComment = document.getElementById('txtcomment').value;
+var rptStatus = document.getElementById('Rstatus').value;
+
+//alert(rptName);
+//alert(rptType);
+//alert(rptComment);
+//alert(rptStatus);
+
+report.set("RptName", rptName);
+report.set("RptType", rptType);
+report.set("RptComment", rptComment);
+report.set("RptStatus", rptStatus);
+
+
+report.save(null, {
+ success: function(report) {
+ alert('Report submitted.');
+ },
+ error: function(report, error) {
+   alert('Failed to create new object, with error code: ' + error.description);
+ }
+})
+};
+
+</script>
+ 
+  
   
 <style>
 body {background-color:#FCE562; }
@@ -19,35 +58,35 @@ body {background-color:#FCE562; }
 </style>
 
 <div>
-Name: <input type="text" name ="Rstall_name"> 
+Name: <input type="text" id="txtName" name ="Rstall_name"> 
 <br>
 
 Type of complaint: 
-<select id="compl">
-  <option value="1">Wrong location</option>
-  <option value="2">Not the same shop</option>
-  <option value="3">It tastes like crap now</option>
-  <option value="4">Other (please state)</option>
+<select id="cboType">
+  <option value="Wrong location">Wrong location</option>
+  <option value="Not the same shop">Not the same shop</option>
+  <option value="It tastes like crap now">It tastes like crap now</option>
+  <option value="Other (please state)">Other (please state)</option>
 </select> 
 
 <br>
 
 
 Comments:
-<textarea rows="4"   placeholder="Enter your comments here" id="comm"></textarea>
+<textarea rows="4"   placeholder="Enter your comments here" id="txtcomment"></textarea>
  
 
 <div><form>
 Status: 
-<input type="radio" class="form-control" name="Status" value="Lost" id="status"> Lost
-<input type="radio" class="form-control" name="Status" value="Uncertain" id="status"> Uncertain
-<input type="radio" class="form-control" name="Status" value="Found" id="status"> Found
+<input type="radio" class="form-control" name="Status" value="Lost" id="Rstatus"> Lost
+<input type="radio" class="form-control" name="Status" value="Uncertain" id="Rstatus"> Uncertain
+<input type="radio" class="form-control" name="Status" value="Found" id="Rstatus"> Found
 
 </form>
 
   
 <br>
-<input type="submit" class="form-control" value="Submit">
+<input type="submit" class="form-control" value="Submit" onclick=AddReport()>
 
 
 <br>
