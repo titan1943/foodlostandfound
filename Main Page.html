@@ -1,0 +1,84 @@
+<head>
+<title>
+Food: Lost and Found
+</title>
+  <script src="http://www.parsecdn.com/js/parse-1.2.10.min.js"></script>
+</head>
+<body>
+
+<style>
+body {background-color:#FCE562;}
+</style>
+
+
+
+<style>
+.food{font-family: Arial, Helvetica, sans-serif;
+	font-size: 40px;
+	text-align: center;}
+
+.lf{
+font-family: Arial, Helvetica, sans-serif;
+	font-size: 30px;
+	text-align: center;
+}
+</style>
+<h1 class="food">FOOD:</h><h1 class="lf"> Lost & Found </h>
+<br>
+<br>
+<br>
+<center>
+
+<style type="text/css">
+
+	}
+	#tfnewsearch{
+		float:right;
+		padding:20px;
+	}
+	.tftextinput{
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #FA4A05; border-right:0px;
+		background: #FA4A05;
+		background: -webkit-gradient(linear, left top, left bottom, from(#FA4A05), to(#FC5D1E));
+		background: -moz-linear-gradient(top,  #FA4A05,  #FC5D1E);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+		font-weight: bold;
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+
+
+
+</style>	
+	<div id="tfheader">
+		<form id="tfnewsearch" method="get" action="foodResult.html" >
+		        <input type="text" class="tftextinput" id="txtsearch" name="q" size="21" maxlength="200"> <div> <br>  <input type="submit" value="Search" class="tfbutton" onclick=searchFood()>
+		</form>
+	<div class="tfclear"></div>
+	</div>
+
+</center>
+
+</body>
